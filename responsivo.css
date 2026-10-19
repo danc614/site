@@ -1,0 +1,270 @@
+/* responsivo.css
+   Linke este arquivo POR ÚLTIMO em todas as páginas (depois de style.css, css.css e css1.css).
+   No PC (telas grandes) nada muda. Em tablet e celular, o layout vira uma coluna.
+   Os !important estão aqui porque seu HTML tem muito style="" inline e position:absolute. */
+
+/* ------------------------------------------------------------
+   Como funciona:
+   - @media (max-width: 1100px) = "só aplique as regras de dentro quando a tela
+     tiver NO MÁXIMO 1100px de largura" (tablet e celular).
+   - !important = "esta regra vence todas as outras", inclusive o style="..."
+     escrito direto no HTML. Sem ele, as posições inline do HTML ganhariam.
+   - position: static = o elemento volta ao fluxo normal (para de usar left/top).
+   ------------------------------------------------------------ */
+
+/* ===== TABLET E CELULAR (até 1100px) ===== */
+@media (max-width: 1100px) {
+
+  /* Pequena folga nas bordas; box-sizing faz o padding NÃO aumentar a largura total */
+  body { padding: 8px; box-sizing: border-box; }
+
+  /* Nenhuma imagem pode ficar maior que o espaço onde está */
+  img { max-width: 100%; }
+
+  /* Caixa principal da loja: deixa de ter tamanho fixo e se adapta ao conteúdo */
+  .principal {
+    width: 100% !important;
+    height: auto !important;             /* altura automática: cresce conforme o conteúdo */
+    border-radius: 0;
+    border: none;
+    overflow-x: hidden;                  /* esconde o que passar para os lados (sem rolagem horizontal) */
+  }
+
+  /* logo menor */
+  .icone img { width: 60px; height: auto; }
+
+  /* barra de pesquisa: ocupa a largura toda e fica abaixo do logo */
+  .principal2 {
+    width: 100% !important;
+    height: auto !important;
+    left: 0 !important;
+    top: 0 !important;
+    margin: 70px 0 10px;                 /* 70px em cima (espaço do logo), 0 nos lados, 10px embaixo */
+    padding: 8px;
+    box-sizing: border-box;
+  }
+
+  /* Pesquisa e menu viram linhas flexíveis que "quebram" para a linha de baixo se faltar espaço */
+  .barra, .opçoes {
+    width: 100% !important;
+    height: auto !important;
+    display: flex;
+    flex-wrap: wrap;                     /* se não couber, o item desce para a próxima linha */
+    align-items: center;
+    gap: 10px;                           /* espaço entre os itens */
+    border-radius: 0;
+  }
+
+  /* O "*" significa "TUDO que está dentro".
+     Aqui tira o position:absolute de todos os itens do menu, para eles se organizarem sozinhos. */
+  .barra *, .opçoes * {
+    position: static !important;
+    margin: 0;
+  }
+
+  /* Campo de pesquisa ocupa a largura toda */
+  #barrapesquisa {
+    width: 100% !important;
+    height: 30px !important;
+    box-sizing: border-box;
+  }
+
+  /* Botão "Meus pedidos": tamanho automático, com espaço interno */
+  #pedido {
+    width: auto !important;
+    height: auto !important;
+    padding: 6px 12px;
+  }
+
+  /* botão "conta" e caixinha da conta: vão para o canto direito */
+  #abrirconta {
+    left: auto !important;               /* cancela o "left" antigo */
+    right: 10px;                         /* cola a 10px da direita */
+    top: 10px !important;
+  }
+
+  /* Texto "conta" dentro do botão: menor e no fluxo normal */
+  #abrirconta h1 {
+    position: static !important;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  /* Caixinha que abre ao clicar em "conta" */
+  .conta {
+    left: auto !important;
+    right: 10px;
+    top: 50px !important;                /* logo abaixo do botão */
+  }
+
+  /* Todos os h2: centralizados e sem posição absoluta/relativa */
+  h2 {
+    position: static !important;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  /* lista de celulares (pagina1) */
+  /* Vira uma COLUNA: os cards ficam um embaixo do outro, centralizados */
+  .divdecelular {
+    width: 100% !important;
+    height: auto !important;
+    display: flex;
+    flex-direction: column;              /* empilha na vertical */
+    align-items: center;                 /* centraliza na horizontal */
+    gap: 20px;                           /* espaço entre os cards */
+    padding: 10px 0;    
+  }
+
+  /* Cards: deixam de ser "absolute" e passam a ocupar 90% da largura (até 340px) */
+  .troca, .celular, .celular2 {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    width: 90% !important;
+    max-width: 340px;                    /* nunca passa de 340px */
+    height: auto !important;
+    padding: 12px;
+    box-sizing: border-box;
+    
+  }
+
+  /* Tudo que está dentro dos cards volta ao fluxo normal (cancela posições do HTML) */
+  .troca *, .celular *, .celular2 * {
+    position: static !important;
+  }
+
+  /* Imagens dos cards: centralizadas e proporcionais */
+  .troca img, .celular img, .celular2 img {
+    display: block;                      /* permite centralizar com margin auto */
+    margin: 0 auto;                      /* 0 em cima/embaixo, "auto" nos lados = centraliza */
+    width: 70% !important;
+    height: auto !important;             /* mantém a proporção da imagem */
+  }
+
+  /* Textos dos cards centralizados */
+  .celular p, .celular2 p, .troca p {
+    text-align: center;
+    margin: 6px 0;
+  }
+
+  /* Botão "Conheça o programa" centralizado */
+  .troca button { display: block; margin: 10px auto; }
+
+  /* carrinho / vender celular (pagina2 e pagina3) */
+  /* Área do carrinho entra no fluxo normal e ocupa a largura toda */
+  .area-carrinho {
+    position: static !important;
+    width: 100% !important;
+    margin: 10px 0 20px;
+  }
+
+  /* Caixa do carrinho: centralizada, com largura máxima de 500px */
+  .area-carrinho .rl {
+    position: static !important;
+    width: 100% !important;
+    max-width: 500px;
+    height: auto !important;
+    min-height: 200px;                   /* altura mínima para não ficar achatada */
+    margin: 0 auto;                      /* centraliza */
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  /* Bloco "carrinho vazio" se adapta */
+  .carrinho-vazio { width: 100% !important; height: auto !important; }
+
+  /* formas de pagamento */
+  /* Quadro cinza entra no fluxo normal, centralizado e abaixo do carrinho */
+  .rlo {
+    position: static !important;
+    width: 100% !important;
+    max-width: 300px;
+    height: auto !important;
+    margin: 0 auto 20px;
+  }
+
+  /* Caixas de pagamento ocupam a largura do quadro */
+  .https, .htt { width: 100% !important; box-sizing: border-box; }
+
+  /* cadastro (index.html) */
+  /* Título "Página de Cadastro": "body > h1" = só o h1 que é filho direto do body */
+  body > h1 {
+    position: static !important;
+    text-align: center;
+    font-size: 22px;
+    margin: 70px 10px 10px;              /* 70px em cima para não bater no logo */
+  }
+
+  /* Caixa do formulário: centralizada e flexível (até 400px) */
+  .divcadrasto {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 90% !important;
+    max-width: 400px;
+    height: auto !important;
+    margin: 20px auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  /* Conteúdo do formulário volta ao fluxo normal */
+  .divdentro { position: static !important; }
+
+  /* imagens decorativas: uma de cada lado do título, sempre visíveis */
+  .decor1, .decor2 {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 12vw;                         /* vw = 12% da largura da TELA (cresce e diminui com ela) */
+    min-width: 60px;                     /* nunca menor que 60px */
+    max-width: 120px;                    /* nunca maior que 120px */
+    margin-top: 70px;
+  }
+
+  /* float = "flutua" para a esquerda/direita e o título se encaixa no meio */
+  .decor1 { float: left; margin-left: 8px; }
+  .decor2 { float: right; margin-right: 8px; }
+
+  /* A imagem preenche a caixa e mantém a proporção */
+  .decor1 img, .decor2 img {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* o formulário começa só depois das imagens */
+  /* clear: both = "não fique ao lado das imagens flutuantes, comece abaixo delas" */
+  .divcadrasto { clear: both; }
+
+  /* rodapé */
+  /* O rodapé deixa de ficar preso a 700px do topo e entra no fim do conteúdo */
+  .rodape {
+    position: static !important;
+    width: 100% !important;
+    padding: 15px;
+    margin-top: 20px;
+    box-sizing: border-box;
+  }
+
+  /* Endereço, "Sobre" e atendimento ficam um embaixo do outro */
+  .informacoes, .sobre, .atendimento {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 10px 0;
+  }
+
+  /* Caixa de atendimento com largura máxima */
+  .atendimento { max-width: 340px; box-sizing: border-box; }
+}
+
+/* ===== CELULAR PEQUENO (até 600px) ===== */
+/* Regras extras só para telas de até 600px de largura */
+@media (max-width: 600px) {
+  body { font-size: 14px; }                          /* letra um pouco menor */
+  .troca, .celular, .celular2 { max-width: 100%; }   /* cards podem ocupar toda a largura */
+  .https, .htt { font-size: 18px; }                  /* textos de pagamento menores */
+}

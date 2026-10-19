@@ -1,0 +1,180 @@
+/* Caixa verde de título: "FORMAS DE PAGAMENTO" */
+.https {
+    background-color: rgb(9, 219, 100);  /* cor de fundo (vermelho, verde, azul) */
+    width: 250px;                        /* largura da caixa */
+    height: 100px;                       /* altura da caixa */
+    color: white;                        /* cor do texto */
+    position: relative;                  /* fica no fluxo normal da página (permite ajustar com top/left) */
+    display: flex;                       /* liga o Flexbox: organiza o conteúdo dentro da caixa */
+    gap: 10px;                           /* espaço entre os itens de dentro */
+    justify-content: center;             /* centraliza o conteúdo na HORIZONTAL (direção padrão = linha) */
+    align-items: center;                 /* centraliza o conteúdo na VERTICAL */
+    border: 1px black solid;             /* borda: espessura, cor e estilo (linha sólida) */
+    font-size: 20px;                     /* tamanho da letra */
+}
+
+/* Caixas brancas de cada forma de pagamento (dinheiro, débito, crédito, pix) */
+.htt {
+    background-color: white;
+    width: 250px;
+    height: 100px;
+    color: black;
+    position: relative;
+    display: flex;
+    flex-direction: column;              /* empilha os itens um embaixo do outro (em vez de lado a lado) */
+    justify-content: center;             /* com "column", isto centraliza na VERTICAL */
+    align-items: center;                 /* com "column", isto centraliza na HORIZONTAL */
+    gap: 10px;
+    border: 1px black solid;
+    font-size: 30px;
+}
+
+/* Quadro cinza que guarda todas as formas de pagamento */
+.rlo {
+    position: absolute;                  /* tira do fluxo normal e posiciona por coordenadas */
+    width: 200px;
+    height: 200px;
+    background-color: rgb(240, 238, 238);
+    left: 80%;                           /* distância da borda esquerda: 80% da largura da página */
+    top: 10%;                            /* distância do topo: 10% da altura da página */
+}
+
+
+/* ---------- CARRINHO / VENDER CELULAR (pagina2 e pagina3) ---------- */
+
+/* Caixa grande com a foto de fundo (nesta versão tem imagem de fundo) */
+.rl {
+    background-image: url(https://brotandoconsciencia.com.br/wp-content/uploads/2023/07/Celulares-curiosidades.jpg); /* imagem de fundo */
+    background-color: white;             /* cor que aparece se a imagem não carregar */
+    border: 2px black solid;
+    width: 900px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;              /* conteúdo empilhado */
+    justify-content: center;             /* centraliza na vertical */
+    align-items: center;                 /* centraliza na horizontal */
+    border-radius: 30px;                 /* cantos arredondados */
+    position: absolute;
+    left: -140px;                        /* valor negativo: empurra para a ESQUERDA do ponto de referência */
+}
+
+/* Área que envolve o título e a caixa .rl */
+.area-carrinho {
+    position: absolute;
+    left: 365px;                         /* 365px da borda esquerda da página */
+    top: 130px;                          /* 130px do topo da página */
+    width: 500px;
+}
+
+/* Título (h1) que está DENTRO de .area-carrinho (o espaço no seletor significa "dentro de") */
+.area-carrinho h1 {
+    text-align: center;                  /* centraliza o texto */
+    font-size: 25px;
+    margin-bottom: 20px;                 /* espaço livre embaixo do título */
+}
+
+/* Bloco com a mensagem "seu carrinho está vazio" */
+.carrinho-vazio {
+    width: 260px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Parágrafos (p) que estão dentro de .carrinho-vazio */
+.carrinho-vazio p {
+    font-size: 17px;
+}
+
+/* Carinha triste: um quadrado 80x80 com borda vira CÍRCULO por causa do border-radius */
+.carinha {
+    width: 80px;
+    height: 80px;
+    border: 3px solid black;
+    border-radius: 50%;                  /* 50% = círculo perfeito */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    line-height: 1;                      /* altura da linha = tamanho da letra (evita espaço extra) */
+    transform: rotate(0deg);             /* rotação de 0 graus = não gira nada (pode ser removida) */
+}
+
+/* Palavra "ACRÉSCIMO" no crédito */
+.acrescimo {
+    color: rgb(200, 40, 40);             /* vermelho */
+    font-size: 25px;
+    font-weight: bold;                   /* negrito */
+}
+
+
+/* ---------- RODAPÉ (todas as páginas) ---------- */
+
+/* Faixa do rodapé */
+.rodape {
+    position: absolute;
+    top: 700px;                          /* começa a 700px do topo da página */
+    left: 0;
+    width: 100%;                         /* ocupa a largura toda */
+    min-height: 180px;                   /* altura mínima (pode crescer se precisar) */
+    border-top: 2px solid black;         /* linha só na parte de cima */
+    background-color: white;
+}
+
+/* Endereço e contato (lado esquerdo do rodapé) */
+.informacoes {
+    position: absolute;                  /* posicionado em relação ao .rodape */
+    left: 70px;
+    top: 20px;
+}
+
+.informacoes h4 {
+    font-size: 18px;
+    margin: 15px 0;                      /* 15px em cima/embaixo e 0 nos lados */
+}
+
+/* "Sobre a gente" (meio do rodapé) */
+.sobre {
+    position: absolute;
+    left: 45%;
+    top: 40px;
+}
+
+.sobre h4 {
+    font-size: 18px;
+    text-decoration: underline;          /* sublinhado */
+}
+
+/* Caixa com os números de atendimento (lado direito do rodapé) */
+.atendimento {
+    position: absolute;
+    right: 70px;                         /* 70px da borda DIREITA */
+    top: 10px;
+    width: 300px;
+    height: 150px;
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 10px 20px;                  /* espaço INTERNO: 10px em cima/embaixo, 20px nos lados */
+    background-color: white;
+}
+
+.atendimento h3 {
+    margin-top: 0;                       /* tira o espaço de cima do título */
+    font-size: 17px;
+}
+
+.atendimento p {
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+
+/* ---------- UTILITÁRIO ---------- */
+
+/* Deixa o texto branco (usado nos requisitos da pagina3, que ficam sobre a imagem) */
+.cor2 {
+    color: white
+}

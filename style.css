@@ -1,0 +1,182 @@
+body {
+    background-color: white;
+    margin: 0;                           /* tira a margem padrão do navegador */
+    font-family: Arial, sans-serif;      /* fonte do site (sans-serif é a reserva se Arial faltar) */
+    font-size: 16px;                     /* tamanho padrão da letra */
+    padding: 0px;
+}
+
+/* Caixa principal da loja (pagina1): guarda tudo dentro dela */
+.principal {
+    width: 100%;                         /* ocupa a largura toda */
+    height: 850px;
+    border-radius: 20px;
+    background-color: white;
+    position: relative; /* Adicionado para conter os absolutos internos */
+                        /* ^ faz os filhos "absolute" se posicionarem em relação a esta caixa */
+}
+
+
+/* ---------- BARRA DE PESQUISA E MENU ---------- */
+
+/* Caixa arredondada do topo que guarda a pesquisa e o menu */
+.principal2 {
+    width: 820px;
+    height: 60px;
+    border: 1px solid black;
+    border-radius: 20px;
+    position: relative;
+    top: 10px;                           /* desce 10px a partir da posição normal */
+    left: 240px;                         /* empurra 240px para a direita a partir da posição normal */
+}
+
+/* Linha com a pesquisa, "Meus pedidos" e "vender meu celular" */
+.barra {
+    width: 820px;
+    height: 20px;
+    position: relative;
+    left: 5px;
+    top: 1px;
+}
+
+/* Linha de baixo do menu: Iphone, Samsung, Motorola... (o nome tem "ç", e funciona normalmente) */
+.opçoes {
+    width: 450px;
+    height: 20px;
+    border-radius: 20px;
+    position: relative;
+}
+
+/* ATENÇÃO: isto vale para TODOS os h2 do site */
+h2 {
+    position: relative;
+    top: 70px;                           /* desce 70px */
+    left: 50px;                          /* vai 50px para a direita */
+}
+
+
+/* ---------- LISTA DE CELULARES (pagina1) ---------- */
+
+/* Área que guarda os cards de celular */
+.divdecelular {
+    width: 850px;
+    height: 400px;
+    position: relative;
+
+    top: 15%;                            /* desce 15% (a base da conta é a altura do pai) */
+}
+
+/* Card "Troca Smart" */
+.troca {
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    left: 30px;                          /* 30px da esquerda da .divdecelular */
+    bottom: 130px;                       /* 130px da BASE da .divdecelular */
+    background-color: white;
+}
+
+/* Card do primeiro celular (Galaxy) */
+.celular {
+    width: 250px;
+    height: 300px;
+    border: 2px solid black;
+    position: absolute;
+    left: 650px;
+    bottom: 130px;
+    background-color: white;
+    border-radius: 30px;
+}
+
+/* Card do segundo celular (Motorola) */
+.celular2 {
+    width: 250px;
+    height: 300px;
+    border: 2px solid black;
+    position: absolute;
+    left: 980px;
+    bottom: 130px;
+    background-color: white;
+    border-radius: 30px;
+    z-index: 1;                          /* "camada": número maior fica POR CIMA dos outros */
+}
+
+
+/* ---------- CADASTRO (index.html) ---------- */
+
+/* Caixa grande do formulário de cadastro */
+.divcadrasto {
+    width: 400px;
+    height: 500px;
+    border: 2px solid black;
+    border-radius: 30px;
+    position: absolute;
+    left: 39%;                           /* 39% da largura da tela, a partir da esquerda */
+    top: 100px;
+}
+
+/* Conteúdo (título + campos) dentro da caixa de cadastro */
+.divdentro {
+    position: absolute;
+    left: 102px;
+    top: 200px;
+}
+
+
+/* ---------- LOGO E DECORAÇÃO ---------- */
+
+/* Logo no canto superior esquerdo */
+.icone {
+    position: absolute;
+    left: 30px;
+    top: 10px;
+}
+
+/* Imagem decorativa do lado esquerdo do cadastro */
+.decor1 {
+    position: absolute;
+    left: 10%;                           /* 10% da largura da tela, a partir da esquerda */
+    top: 180px;
+}
+
+/* Imagem decorativa do lado direito do cadastro */
+.decor2 {
+    position: absolute;
+    right: 10%;                          /* 10% da largura da tela, a partir da DIREITA */
+    top: 180px;
+}
+
+
+/* ---------- CAIXINHA DA CONTA (pagina1) ---------- */
+
+/* Caixa que aparece ao clicar em "conta" */
+.conta {
+    width: 180px;
+    height: 190px;
+    position: absolute;
+    right: 3%;
+    top: 5px;
+    border-radius: 20px;
+    border: 2px solid black;
+    z-index: 2;                          /* fica por cima dos outros elementos */
+    display: none;                       /* começa ESCONDIDA; o JavaScript mostra ao clicar */
+}
+
+
+/* ---------- AJUSTE PARA TELAS ATÉ 1366px ---------- */
+
+/* @media = "só use as regras abaixo SE a tela tiver no máximo 1366px de largura"
+   (notebooks menores). Aqui só o cadastro muda de lugar. */
+@media (max-width: 1366px) {
+    .divcadrasto {
+        width: 400px;
+        height: 500px;
+        border: 2px solid black;
+        border-radius: 30px;
+        position: absolute;
+        left: 35%;                       /* um pouco mais à esquerda que os 39% de cima */
+        top: 100px;
+    }
+}

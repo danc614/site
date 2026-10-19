@@ -1,0 +1,224 @@
+/* Caixa verde de título "FORMAS DE PAGAMENTO" */
+.https {
+    background-color: rgb(9, 219, 100);  /* fundo verde */
+    width: 250px;
+    height: 100px;
+    color: white;
+    position: relative;
+    display: flex;                       /* Flexbox: organiza o conteúdo de dentro */
+    gap: 10px;                           /* espaço entre os itens de dentro */
+    justify-content: center;             /* centraliza na horizontal */
+    align-items: center;                 /* centraliza na vertical */
+    border: 1px black solid;
+    font-size: 20px;
+}
+
+/* Caixas brancas: dinheiro, débito, crédito e pix */
+.htt {
+
+    background-color: white;
+    width: 250px;
+    height: 100px;
+    color: black;
+    position: relative;
+    display: flex;
+    flex-direction: column;              /* itens empilhados na vertical */
+    justify-content: center;             /* centraliza na vertical (por causa do column) */
+    align-items: center;                 /* centraliza na horizontal */
+    gap: 10px;
+    border: 1px black solid;
+    font-size: 30px;
+}
+
+/* Quadro cinza que guarda as formas de pagamento */
+.rlo {
+    position: absolute;                  /* posicionado por coordenadas, fora do fluxo normal */
+    width: 200px;
+    height: 200px;
+    background-color: rgb(240, 238, 238);
+    left: 80%;                           /* 80% da largura da página, a partir da esquerda */
+    top: 10%;                            /* 10% da altura da página, a partir do topo */
+}
+
+
+
+/* ---------- CARRINHO ---------- */
+
+/* Caixa branca do carrinho (DIFERENTE do css.css: menor e sem imagem) */
+.rl {
+    background-color: white;
+    border: 2px black solid;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 30px;                 /* cantos arredondados */
+    position: absolute;
+    left: 95px;                          /* 95px da borda esquerda da .area-carrinho */
+}
+
+/* Área que envolve o título e a caixa do carrinho */
+.area-carrinho {
+    position: absolute;
+    left: 365px;
+    top: 130px;
+    width: 500px;
+}
+
+/* Título dentro da .area-carrinho */
+.area-carrinho h1 {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+
+
+/* Mensagem "seu carrinho está vazio" */
+.carrinho-vazio {
+    width: 260px;
+    height: 160px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+}
+
+.carrinho-vazio p {
+    font-size: 17px;
+}
+
+
+
+/* Carinha triste redonda (border-radius 50% = círculo) */
+.carinha {
+    width: 80px;
+    height: 80px;
+
+    border: 3px solid black;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 55px;
+    line-height: 1;                      /* sem espaço extra em volta da letra */
+
+    transform: rotate(0deg);             /* 0 graus = não gira (pode ser removida) */
+}
+
+
+
+/* Palavra "ACRÉSCIMO" em vermelho e negrito */
+.acrescimo {
+    color: rgb(200, 40, 40);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+/* ---------- RODAPÉ ---------- */
+
+/* Faixa do rodapé, colada a 700px do topo e com a largura toda */
+.rodape {
+
+    position: absolute;
+
+    top: 700px;
+    left: 0;
+
+    width: 100%;
+    min-height: 180px;                   /* altura mínima */
+
+    border-top: 2px solid black;         /* linha só em cima */
+
+    background-color: white;
+}
+
+
+
+
+/* Endereço e contato (esquerda) */
+.informacoes {
+
+    position: absolute;
+
+    left: 70px;
+    top: 20px;
+
+}
+
+.informacoes h4 {
+
+    font-size: 18px;
+    margin: 15px 0;                      /* 15px em cima/embaixo, 0 nos lados */
+
+}
+
+
+
+/* "Sobre a gente" (meio) */
+.sobre {
+
+    position: absolute;
+
+    left: 45%;
+    top: 40px;
+
+}
+
+.sobre h4 {
+
+    font-size: 18px;
+    text-decoration: underline;          /* sublinhado */
+
+}
+
+
+
+/* Caixa de números de atendimento (direita) */
+.atendimento {
+
+    position: absolute;
+
+    right: 70px;                         /* distância da borda DIREITA */
+    top: 10px;
+
+    width: 300px;
+    height: 150px;
+
+    border: 2px solid black;
+
+    border-radius: 30px;
+
+    padding: 10px 20px;                  /* espaço interno: 10px cima/baixo, 20px lados */
+
+    background-color: white;
+
+}
+
+
+.atendimento h3 {
+
+    margin-top: 0;
+
+    font-size: 17px;
+
+}
+
+
+.atendimento p {
+
+    margin: 5px 0;
+
+    font-size: 15px;
+
+}
